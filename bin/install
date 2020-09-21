@@ -73,7 +73,6 @@ get_download_url() {
       *)          arch="UNKNOWN:${uname}"
   esac
 
-  local arch="$(get_arch $version)"
   echo "https://github.com/istio/istio/releases/download/${version}/istio-${version}-${os_dist}${arch}.tar.gz"
 }
 
