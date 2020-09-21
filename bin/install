@@ -64,13 +64,14 @@ get_arch() {
 }
 
 get_download_url() {
+  uname="$(uname -s)"
   local version="$1"
   local os_dist="$(get_platform)"
 
   case "${uname}" in
       Linux*)     arch="$(get_arch $version)";;
       Darwin*)    arch="";;
-      *)          arch=""
+      *)          arch="UNKNOWN:${uname}"
   esac
 
   echo "https://github.com/istio/istio/releases/download/${version}/istio-${version}-${os_dist}${arch}.tar.gz"
